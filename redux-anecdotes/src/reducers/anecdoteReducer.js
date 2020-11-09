@@ -37,7 +37,6 @@ export const createAnecdote = (content) => {
 
 const initialState = anecdotesAtStart.map(asObject)
 
-//reducer
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'VOTE':
