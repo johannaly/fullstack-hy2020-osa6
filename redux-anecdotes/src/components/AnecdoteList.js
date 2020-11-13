@@ -23,7 +23,7 @@ const AnecdoteList = () => {
     const dispatch = useDispatch()
     const anecdotes = useSelector(state => state.anecdote)
     const filter = useSelector(state => state.filter)
-    console.log(anecdotes)
+    //console.log(anecdotes)
     const filteredAnecdotes = anecdotes.filter(a => a.content.toLowerCase().includes(filter))
 
     return(
@@ -38,7 +38,7 @@ const AnecdoteList = () => {
                     key={anecdote.id}
                     anecdote={anecdote}
                     handleClick={() => {
-                        dispatch(addVote(anecdote.id))
+                        dispatch(addVote(anecdote))
                         dispatch(addNotification(anecdote))
                         setTimeout(() => {
                             dispatch(removeNotification())
