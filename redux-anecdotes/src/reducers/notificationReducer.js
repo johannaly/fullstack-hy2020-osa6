@@ -3,18 +3,17 @@ const initialState = [
     visible: false }
 ]
 
-export const addNotification = (content) => {
-    return({
-        type: 'NEW_VOTE',
-        data: { content }
-    })
-}
-
-export const addNotificationNewAnecdote = (content) => {
-    return({
-        type: 'NEW_ANECDOTE_ADD',
-        data: { content }
-    })
+export const addNotification = (content, time) => {
+    return async dispatch => {
+        dispatch({
+            type: 'NEW_NOTIFICATION',
+            data: { content }
+        })
+        setTimeout(() => {
+            dispatch({
+                type: 'REMOVE_NOTIFICATION'
+            })}, time * 1000)
+    }
 }
 
 export const removeNotification = () => {
@@ -25,19 +24,14 @@ export const removeNotification = () => {
  
 const notificationReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'NEW_VOTE':
+        case 'NEW_NOTIFICATION':
             const content = action.data.content
-            state = { notification: `You voted '${content.content}'`,
+            state = { notification: content,
             visible: true }
             return state
         case 'REMOVE_NOTIFICATION':
             state = { notification: "",
             visible: false }
-            return state
-        case 'NEW_ANECDOTE_ADD':
-            //console.log(action.data)
-            state = { notification: `You added '${action.data.content}'`,
-            visible: true }
             return state
         default:
             return state
