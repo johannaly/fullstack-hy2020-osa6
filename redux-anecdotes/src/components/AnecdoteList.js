@@ -54,8 +54,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-
-
 const mapDispatchToProps = {
     addVote, addNotification
 }
