@@ -28,7 +28,7 @@ const AnecdoteList = () => {
     return(
         <div>
             <h2>Anecdotes</h2>
-            <Filter anecdotes={anecdotes}/>
+            <Filter />
             <div>
             {filteredAnecdotes
             .sort((a, b) => b.votes - a.votes)

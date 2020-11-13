@@ -5,7 +5,7 @@ import { addNotificationNewAnecdote, removeNotification } from '../reducers/noti
 import anecdoteService from '../services/anecdotes'
 
 
-const AnecdoteForm = (props) => {
+const AnecdoteForm = () => {
     const dispatch = useDispatch()
 
 
